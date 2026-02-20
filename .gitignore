@@ -1,0 +1,51 @@
+# =========================
+# LaTeX: archivos de compilación
+# =========================
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Salidas generadas (activar si no quieres versionarlas)
+*.pdf
+*.dvi
+*.ps
+
+# =========================
+# Archivos temporales/backup de editores
+# =========================
+*.swp
+*.swo
+*.tmp
+*~
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
