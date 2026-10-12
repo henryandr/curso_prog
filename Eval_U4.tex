@@ -19,7 +19,7 @@
 \lstset{
 	basicstyle=\small\ttfamily,
 	stringstyle=\ttfamily,
-	commentstyle=\color{gray45},
+	commentstyle=\color{gray},
 	showstringspaces=false,
 	keywordstyle=\bfseries
 }
@@ -30,10 +30,10 @@
 	
 	\pagestyle{headandfoot}
 	\runningheadrule
-	\firstpageheader{Programaci\'on}{Evaluaci\'on Unidad 4 - Nivel Avanzado}{2026}
-	\runningheader{Programaci\'on}{Evaluaci\'on Unidad 4, Page \thepage\ of \numpages}{2026}
-	\firstpagefooter{Escuela de Ingenier\'ias}{UPB}{Ingenier\'ia Aeron\'autica}
-	\runningfooter{Escuela de Ingenier\'ias}{UPB}{Ingenier\'ia Aeron\'autica}
+	\firstpageheader{Programación}{Evaluación Unidad 4 - Estructuras de datos}{2026}
+	\runningheader{Programación}{Evaluación Unidad 4, Page \thepage\ of \numpages}{2026}
+	\firstpagefooter{Escuela de Ingenierías}{UPB}{Ingeniería Aeronáutica}
+	\runningfooter{Escuela de Ingenierías}{UPB}{Ingeniería Aeronáutica}
 	
 	\begin{center}
 		\begin{tabular}{|m{4cm}|m{8cm}|m{6cm}|}
@@ -48,7 +48,7 @@
 	
 	\tcbset{colback=red!5!white, colframe=red!75!black, fonttitle=\bfseries}
 	\begin{tcolorbox}[title=Nota Importante]
-		Lea cuidadosamente cada pregunta. Responda utilizando \emph{solo} conceptos y estructuras trabajados en clase. No se permite acceso a Internet durante la prueba. En las preguntas de c\'odigo, respete la sintaxis e indentaci\'on de Python.
+		Lea cuidadosamente cada pregunta. Responda utilizando únicamente conceptos y estructuras trabajados en clase. No se permite el uso de \emph{list comprehensions}, librerías externas ni acceso a Internet durante la prueba. En las preguntas de código, respete la sintaxis e indentación de Python.
 	\end{tcolorbox}
 	
 	\begin{multicols}{2}
@@ -57,177 +57,188 @@
 			\pointname{ Puntos}
 			\qformat{Pregunta \thequestion \dotfill \thepoints}
 			
-			\section*{1. Conceptos y estructuras de programaci\'on (30 puntos)}
+			\section*{1. Fundamentos y conceptos (30 puntos)}
 			
 			\question[10]
-			\textbf{Complete los espacios vac\'ios.} Escriba en la columna izquierda el concepto, operador u operaci\'on que debe ejecutarse para que coincida con la descripci\'on de la columna derecha.
+			\textbf{Emparejamiento.} Escriba en la columna central la letra de la descripción que corresponde a cada concepto.
 			
 			\noindent
 			\begin{center}
-				\begin{tabular}{|c|p{5.2cm}|}
+				\begin{tabular}{|l|c|p{4.6cm}|}
 					\hline
-					\textbf{Complete} & \textbf{Descripci\'on}\\ \hline
-					& A. Genera una secuencia de n\'umeros en orden descendente desde 100 hasta 1.\\ \hline
-					& B. Eval\'ua una condici\'on solo si el \texttt{if} previo es falso.\\ \hline
-					& C. Operador que calcula el cociente entero de una divisi\'on.\\ \hline
-					& D. Finaliza la ejecuci\'on de un bucle, independientemente de la iteraci\'on actual.\\ \hline
-					& E. Palabra clave para definir un bloque de c\'odigo reutilizable.\\ \hline
+					\textbf{Concepto} & \textbf{Letra} & \textbf{Descripción}\\ \hline
+					1. Lista & & A. Propiedad que indica si un objeto puede modificarse después de creado.\\ \hline
+					2. Tupla & & B. Colección ordenada e inmutable; admite desempaquetado.\\ \hline
+					3. Diccionario & & C. Función que retorna el identificador único de un objeto.\\ \hline
+					4. Mutabilidad & & D. Colección de pares clave-valor con claves únicas.\\ \hline
+					5. \texttt{id()} & & E. Colección ordenada y mutable que admite elementos repetidos.\\ \hline
 				\end{tabular}
 			\end{center}
 			
 			\question[10]
-			\textbf{Operadores.} Complete cada expresi\'on con el operador l\'ogico, aritm\'etico o relacional que corresponda seg\'un la condici\'on descrita.
+			\textbf{Completar frases.} Complete cada enunciado con una palabra del banco de palabras. Cada palabra se usa máximo una vez.
+			
+			\begin{center}
+				\fbox{\texttt{mutable \ inmutable \ etiqueta \ key \ value \ zip \ enumerate}}
+			\end{center}
 			
 			\begin{enumerate}
-				\item Comprobar si $n$ es un n\'umero par: \\
-				\texttt{n \ \rule{1cm}{0.4pt}\ 2 == 0}
-				\item Comprobar si $y$ est\'a estrictamente entre 10 y 20: \quad
-				\texttt{10 \ \rule{1cm}{0.4pt}\ y \ \rule{1cm}{0.4pt}\ 20}
-				\item Cambiar el valor de verdad de una variable booleana \texttt{encontrado}: \quad
-				\texttt{\rule{1cm}{0.4pt} encontrado}
-				\item Elevar la variable $x$ a la potencia de 3: \\
-				\texttt{x \ \rule{1cm}{0.4pt}\ 3}
-				\item Exigir que $a$ y $b$ sean iguales, O que $c$ sea 0: \\
-				\texttt{(a == b) \ \rule{1cm}{0.4pt}\ (c == 0)}
+				\item En Python, una variable funciona como una \rule{2cm}{0.4pt} que apunta a un objeto.
+				\item Un \texttt{string} es un objeto \rule{2cm}{0.4pt}: al "modificarlo" se crea uno nuevo.
+				\item En un diccionario, el elemento que identifica de forma única a un dato es la \rule{2cm}{0.4pt}.
+				\item Para recorrer dos listas en paralelo se utiliza la función \rule{2cm}{0.4pt}.
+				\item Para obtener el índice y el valor al recorrer una lista se utiliza \rule{2cm}{0.4pt}.
 			\end{enumerate}
 			
 			\question[10]
-			Analice el siguiente fragmento de c\'odigo.
+			\textbf{Etiquetas y mutabilidad.} Analice los siguientes fragmentos de código.
+			
 \begin{lstlisting}
-tiempo = 0
-while tiempo <= 60:
-	print("t =", tiempo)
-	tiempo = tiempo - 5
+altitud = 10000
+elevacion = altitud
+elevacion = 9500
+print(altitud, elevacion)
 \end{lstlisting}
 
+\begin{lstlisting}
+def agregar(tanques, litros):
+   tanques.append(litros)
+
+combustible = [1000, 1200]
+agregar(combustible, 500)
+print(combustible)
+\end{lstlisting}
+			
 			\begin{enumerate}
-				\item Escriba textualmente qu\'e se imprime en pantalla en las cinco primeras iteraciones.
-				\item Determine si existe un error en la manera de implementar el bucle. Si es as\'i, proponga una correcci\'on.
+				\item Escriba la salida de cada fragmento.
+				\item Explique por qué \texttt{altitud} no cambió, pero \texttt{combustible} sí fue modificada dentro de la función.
 			\end{enumerate}
 			
 			\makeemptybox{4cm}
 			
-			\section*{2. Construcci\'on y an\'alisis de c\'odigo (45 puntos)}
-			
-			\question[25] \textbf{Condicionales: validaci\'on y c\'alculo (altimetr\'ia simplificada).}\\
-			En un simulador, el usuario ingresa una presi\'on est\'atica \texttt{p} (hPa). Para este ejercicio, use el siguiente modelo simplificado para una altitud aproximada:
-			\[
-			\texttt{alt\_m} = (\texttt{1013.25} - \texttt{p}) \times 8
-			\]
-			Escriba un programa que:
-			\begin{enumerate}
-				\item Solicite \texttt{p}.
-				\item Valide: si \texttt{p <= 0} o \texttt{p > 1100}, imprima \texttt{"Presi\'on inv\'alida"} y no haga el c\'alculo.
-				\item Si es v\'alida, calcule \texttt{alt\_m}.
-				\item Clasifique:
-				\begin{itemize}
-					\item \texttt{alt\_m < 0}: \texttt{``Bajo nivel del mar (modelo)''}
-					\item \texttt{0 <= alt\_m <= 3000}: \texttt{``Altitud baja''}
-					\item \texttt{alt\_m > 3000}: \texttt{``Altitud media/alta''}
-				\end{itemize}
-			\end{enumerate}
-			\textbf{Respuesta:}
-			\makeemptybox{8cm}
+			\section*{2. Listas, tuplas y diccionarios (45 puntos)}
 			
 			\question[10]
-			\textbf{Bucle \texttt{for} y acumulaci\'on.} Analice el fragmento de c\'odigo y escriba exactamente qu\'e imprime por pantalla.
+			\textbf{Listas: métodos e índices.} Complete el código con el método o índice que corresponda según el comentario.
 			
 \begin{lstlisting}
-suma = 0
-for i in range(10, 2, -2):
-	if i == 6:
-		continue
-	suma = suma + i
-print(suma)
+componentes = ["alas", "fuselaje", "motores"]
+
+componentes.________("tren de aterrizaje")  # agrega al final
+print(componentes[____])    # imprime el ultimo elemento
+componentes.________("alas")  # elimina "alas"
+pos = componentes.________("motores")  # posicion de "motores"
+\end{lstlisting}
+			
+			\question[10]
+			\textbf{Tuplas.} Complete el código teniendo en cuenta que las tuplas son inmutables.
+			
+\begin{lstlisting}
+coordenada = (33.9425, -118.4081)
+lat, lon = ____________  # desempaquetado
+
+avion = ("Boeing 787", "Dreamliner", 2009, 242)
+print(avion[____])       # imprime 242
+
+rumbo = (270____)        # tupla de un elemento
+\end{lstlisting}
+			
+			\begin{enumerate}
+				\item Complete los espacios en blanco.
+				\item ¿Qué ocurre si se ejecuta \texttt{avion[0] = "Airbus"}? Justifique.
+			\end{enumerate}
+			
+			\makeemptybox{2cm}
+			
+			\question[15]
+			\textbf{Estructuras anidadas (diccionarios y listas).} Una aerolínea almacena su flota como un diccionario cuya clave es la matrícula y cuyo valor es otro diccionario con el modelo y una lista de componentes. Complete las líneas faltantes para imprimir los componentes que superaron su límite de horas.
+			
+\begin{lstlisting}
+flota = {
+  "HK-4532": {"modelo": "A320", "componentes": [
+     {"nombre": "Motor izq", "horas": 1200, "limite": 1000},
+     {"nombre": "Tren", "horas": 900, "limite": 4500}]},
+  "HK-1020": {"modelo": "ATR72", "componentes": [
+     {"nombre": "Alabes", "horas": 3100, "limite": 3000}]}
+}
+
+for matricula in flota:
+   for comp in ____________________________:
+      if ____________________________:
+         print(matricula, comp["nombre"],
+               "requiere mantenimiento")
+\end{lstlisting}
+			
+			\textbf{Escriba además} la salida que produce el programa completo:
+			\makeemptybox{2cm}
+			
+			\question[10]
+			\textbf{Deducción de funcionamiento.} Analice el siguiente fragmento y escriba lo que imprime cada \texttt{print}.
+			
+\begin{lstlisting}
+meteo = {
+  "KLAX": {"temp": 22, "viento": 10},
+  "KORD": {"temp": 5, "viento": 25}
+}
+meteo["KORD"]["temp"] = 3
+meteo["KMIA"] = {"temp": 28, "viento": 8}
+
+print(len(meteo))
+print(meteo.get("KJFK", "sin datos"))
+print(meteo["KORD"]["temp"])
 \end{lstlisting}
 			
 			Salida:
+			\makeemptybox{2.5cm}
+			
+			\section*{3. Auditoría de código y reto (25 puntos)}
+			
+			\question[15]
+			\textbf{Auditoría de código (reto de mantenimiento).} Un grupo desarrolló el siguiente programa que registra 3 aeronaves y reporta las que superan las 5000 horas de vuelo.
+			
+\begin{lstlisting}
+flota = {}
+for i in range(3):
+   matricula = input("Matricula: ")
+   horas = input("Horas de vuelo: ")
+   flota[matricula] = [horas]
+   flota[matricula].append(input("Modelo: "))
+
+for matricula in flota:
+   if flota[matricula][0] > 5000:
+      print(matricula, "requiere mantenimiento")
+\end{lstlisting}
+			
+			\begin{enumerate}
+				\item Identifique el error que impedirá que el programa funcione correctamente y explique por qué ocurre. (5 puntos)
+				\item Escriba la línea corregida. (4 puntos)
+				\item Proponga una mejora en la estructura de datos para que el código sea más legible y justifíquela. (6 puntos)
+			\end{enumerate}
+			
 			\makeemptybox{5cm}
 			
 			\question[10]
-			\textbf{Monitoreo de descenso.} Durante una fase de aproximaci\'on, un sensor entrega la altitud (en pies) cada 10 segundos durante 2 minutos. Complete las instrucciones faltantes en el programa para que:
+			\textbf{Auditoría: copias de listas.} Un estudiante escribió el siguiente código para conservar una copia de seguridad de las lecturas originales, y afirma que \texttt{respaldo} no se verá afectada por los cambios.
+			
+\begin{lstlisting}
+lecturas = [1000, 1200, 800]
+respaldo = lecturas
+lecturas.append(500)
+print(respaldo)
+\end{lstlisting}
+			
 			\begin{enumerate}
-				\item Recorra todas las mediciones.
-				\item Verifique si la altitud actual es mayor a la anterior para incrementar el contador de aumentos.
-				\item Actualice la variable \texttt{altitud\_anterior} en cada iteraci\'on.
-				\item Imprima ``Aproximaci\'on estable'' si no hubo aumentos.
+				\item Indique qué imprime realmente el programa y explique por qué la afirmación del estudiante es incorrecta. (5 puntos)
+				\item Escriba la línea corregida para que \texttt{respaldo} sea independiente. (5 puntos)
 			\end{enumerate}
 			
-\begin{lstlisting}
-aumentos = 0
-altitud_anterior = None
-
-for i in range(________):
-   altitud = float(input("Ingrese altitud: "))
-
-   if altitud_anterior is not None:
-      if altitud > _______________:
-         aumentos = aumentos + _____________
-
-   altitud_anterior = __________
-
-print("Número de aumentos:", aumentos)
-
-if ___________ == ___________:
-   print("Aproximación estable")
-_____:
-   print("Revisar perfil de descenso")
-\end{lstlisting}
-			
-			\vspace{1cm}
-			\section*{3. Funciones y pruebas de funcionalidad (25 puntos)}
-			
-			\question[10]
-			\textbf{Funci\'on.} Complete la funci\'on que recibe un n\'umero $n$ y retorna la sumatoria de todos los n\'umeros impares desde 1 hasta $n$ inclusive.
-			
-\begin{lstlisting}
-def suma_impares(n):
-   suma = 0
-   for i in range(1, ____ , ____):
-      suma += ____
-   return suma
-\end{lstlisting}
-			
-			\question[15]
-			\textbf{Prueba de funcionalidad.} Observe la siguiente funci\'on que aplica un paso de la famosa conjetura de Collatz:
-			
-\begin{lstlisting}
-def secuencia(n):
-   if n % 2 == 0:
-      return n // 2
-   else:
-      return n * 3 + 1
-\end{lstlisting}
-			
-			Complete la tabla escribiendo el valor retornado.
-			
-			\begin{center}
-				\begin{tabular}{|c|c|}
-					\hline
-					\textbf{Entrada} & \textbf{Retorno}\\ \hline
-					4 & \\ \hline
-					5 & \\ \hline
-					10 &\\ \hline
-					7 & \\ \hline
-					16 & \\ \hline
-				\end{tabular}
-			\end{center}
-			
-			Analizando el c\'odigo, indique qu\'e valor final se imprime si realizamos una \textbf{llamada anidada} evaluando el resultado de la funci\'on sobre s\'i misma:
-			\begin{verbatim}
-				print(secuencia(secuencia(5)))
-			\end{verbatim}
-			
-			Resultado de la llamada anidada:
-			\[
-			\texttt{\rule{0.55\linewidth}{0.4pt}}
-			\]
+			\makeemptybox{3.5cm}
 		
 		\end{questions}
 	\end{multicols}
 	
-%\t\begin{center}
-%\t\t\gradetable[h][questions]
-%\t\end{center}
+%	\begin{center}
+%		\gradetable[h][questions]
+%	\end{center}
 	
 \end{document}
