@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{multicol}
+\geometry{letterpaper, margin=2.2cm}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Curso de Programaci\'on}
+\rhead{Unidad 4}
+\cfoot{P\'agina \thepage\ de \pageref{LastPage}}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\newcommand{\blank}[1]{\rule{#1}{0.4pt}}
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Eval\_U4}}\\[2mm]
+{\large Examen parcial -- Unidad 4: Estructuras de datos en Python}\\[1mm]
+\textbf{Duraci\'on: 100 minutos}
+\end{center}
+
+\vspace{2mm}
+\textbf{Nombre:} \blank{8cm} \hfill \textbf{Grupo:} \blank{2.5cm}\\[1mm]
+\textbf{Fecha:} \blank{3.5cm} \hfill \textbf{Puntaje total: 100 puntos}
+
+\vspace{2mm}
+\textbf{Instrucciones generales}
+\begin{itemize}[leftmargin=1.2em]
+    \item Lea cada pregunta con atenci\'on.
+    \item Responda solo con los tipos de respuesta solicitados.
+    \item No se permite el uso de comprensiones de listas, librer\'ias externas ni estructuras no vistas en clase.
+    \item Justifique brevemente cuando se solicite evaluar o auditar c\'odigo.
+\end{itemize}
+
+\textbf{Competencias evaluadas}
+\begin{itemize}[leftmargin=1.2em]
+    \item Identificar y usar correctamente objetos, mutabilidad, listas, tuplas, sets y diccionarios.
+    \item Analizar fragmentos de c\'odigo y deducir su comportamiento.
+    \item Completar y auditar c\'odigo usando estructuras de datos b\'asicas.
+    \item Resolver problemas simples de organizaci\'on y b\'usqueda de datos.
+\end{itemize}
+
+\section*{Pregunta 1. Emparejamiento de conceptos (12 puntos)}
+Empareje cada concepto de la columna A con la descripci\'on correcta de la columna B. Escriba la letra correspondiente.
+
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{6.2cm}|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Columna A} & \textbf{Columna B} \\
+\hline
+1. Lista & a. Colecci\'on no ordenada de pares clave-valor \\
+\hline
+2. Tupla & b. Colecci\'on mutable, ordenada, permite repetidos \\
+\hline
+3. Set & c. Colecci\'on inmutable, ordenada, permite acceso por \texttt{\,[\,]} \\
+\hline
+4. Diccionario & d. Colecci\'on mutable sin elementos duplicados \\
+\hline
+5. Mutabilidad & e. Propiedad que indica si un objeto puede modificarse despu\'es de creado \\
+\hline
+6. \texttt{append()} & f. M\'etodo para agregar un elemento al final de una lista \\
+\hline
+\end{tabularx}
+
+\vspace{2mm}
+Respuestas: 1.\blank{1cm} 2.\blank{1cm} 3.\blank{1cm} 4.\blank{1cm} 5.\blank{1cm} 6.\blank{1cm}
+
+\section*{Pregunta 2. Completar frase con palabra clave (12 puntos)}
+Complete cada enunciado con una palabra o expresi\'on tomada del grupo de opciones.
+
+\textbf{Opciones:} \texttt{mutable}, \texttt{inmutable}, \texttt{key}, \texttt{value}, \texttt{index}, \texttt{item}, \texttt{set}, \texttt{tuple}
+
+\begin{enumerate}[leftmargin=1.3em]
+    \item Una lista es una estructura \blank{2.8cm}.
+    \item Una tupla es una estructura \blank{2.8cm}.
+    \item En un diccionario, la parte que identifica un dato se llama \blank{2.8cm}.
+    \item En un diccionario, el contenido asociado a la clave se llama \blank{2.8cm}.
+    \item El m\'etodo para conocer la posici\'on de un elemento en una lista es \blank{2.8cm}.
+    \item Una colecci\'on sin elementos repetidos se denomina \blank{2.8cm}.
+\end{enumerate}
+
+\section*{Pregunta 3. Completar fragmentos de c\'odigo (20 puntos)}
+Complete el c\'odigo en los espacios en blanco.
+
+\subsection*{3.1 Registro en listas (8 puntos)}
+El siguiente programa debe almacenar dos lecturas de temperatura en una lista y luego mostrar la \u00faltima lectura.
+
+\begin{verbatim}
+temperaturas = [18, 21]
+temperaturas.__________(24)
+print(temperaturas[__________])
+\end{verbatim}
+
+\subsection*{3.2 B\'usqueda en diccionario (6 puntos)}
+Complete la l\'inea faltante para mostrar cu\'antas horas de vuelo tiene la aeronave almacenada en el diccionario.
+
+\begin{verbatim}
+aeronave = {"matricula": "HK-4532", "horas": 5600}
+print(aeronave[__________])
+\end{verbatim}
+
+\subsection*{3.3 Recorrido de una tupla (6 puntos)}
+Complete la l\'inea faltante para recorrer la tupla sin modificarla.
+
+\begin{verbatim}
+modelos = ("A320", "B737", "E190")
+for modelo in __________:
+    print(modelo)
+\end{verbatim}
+
+\section*{Pregunta 4. Completar c\'odigo para resolver un problema (18 puntos)}
+Se requiere recorrer una lista de piezas y mostrar solo las que necesitan mantenimiento. Un componente requiere mantenimiento si sus horas de uso son mayores o iguales al l\'imite.
+
+\begin{verbatim}
+piezas = [
+    {"nombre": "Motor izquierdo", "horas": 1200, "limite": 1000},
+    {"nombre": "Motor derecho", "horas": 950, "limite": 1000},
+    {"nombre": "Tren de aterrizaje", "horas": 5000, "limite": 4500}
+]
+
+for pieza in piezas:
+    if ________________________________________________:
+        print(pieza["nombre"], "requiere mantenimiento")
+\end{verbatim}
+
+Luego, explique en una l\'inea qu\'e hace la condici\'on completada: \blank{10cm}
+
+\section*{Pregunta 5. Deducci\'on de funcionamiento de un fragmento (18 puntos)}
+Analice el siguiente fragmento y responda las preguntas.
+
+\begin{verbatim}
+componentes = ["alas", "fuselaje", "motores"]
+componentes.append("tren de aterrizaje")
+componentes.remove("alas")
+print(componentes)
+\end{verbatim}
+
+\begin{enumerate}[leftmargin=1.3em]
+    \item \u00bfCu\'al es el contenido final de la lista? (6 puntos)\\[1mm]
+    Respuesta: \blank{12cm}
+    \item \u00bfQu\'e efecto tiene \texttt{append()} en este caso? (6 puntos)\\[1mm]
+    Respuesta: \blank{12cm}
+    \item \u00bfQu\'e hace \texttt{remove()}? (6 puntos)\\[1mm]
+    Respuesta: \blank{12cm}
+\end{enumerate}
+
+\section*{Pregunta 6. Auditor\'ia de c\'odigo (20 puntos)}
+Lea el siguiente programa y responda lo que se pide.
+
+\begin{verbatim}
+flota = {
+    "HK-101": ["A320", 1200, 950],
+    "HK-202": ["B737", 1600, 1800]
+}
+
+for matricula in flota:
+    if flota[matricula][1] > flota[matricula][2]:
+        print(matricula, "cumple")
+    else:
+        print(matricula, "no cumple")
+\end{verbatim}
+
+\begin{enumerate}[leftmargin=1.3em]
+    \item Explique qu\'e estructura de datos usa \texttt{flota} y qu\'e almacena cada valor asociado a una matr\'icula. (6 puntos)\\[1mm]
+    Respuesta: \blank{13cm}
+    \item Diga cu\'al es la salida del programa. (6 puntos)\\[1mm]
+    Respuesta: \blank{13cm}
+    \item Identifique una mejora posible para que el c\'odigo sea m\'as legible. (8 puntos)\\[1mm]
+    Respuesta: \blank{13cm}
+\end{enumerate}
+
+\section*{Pregunta 7. Completar c\'odigo con estructuras de datos correctas (10 puntos)}
+Se quiere guardar un inventario de repuestos donde la clave sea el nombre del repuesto y el valor sea su cantidad. Complete el c\'odigo.
+
+\begin{verbatim}
+inventario = __________
+inventario["filtros"] = 12
+inventario["sellos"] = 7
+print(inventario)
+\end{verbatim}
+
+Luego, indique por qu\'e la estructura elegida es adecuada: \blank{9cm}
+
+\vspace{4mm}
+\textbf{Criterio de calificaci\'on general:}
+\begin{itemize}[leftmargin=1.2em]
+    \item Exactitud conceptual y sint\'actica.
+    \item Uso correcto de estructuras de datos.
+    \item Claridad en la deducci\'on del funcionamiento del c\'odigo.
+    \item Detecci\'on de errores y propuesta de mejoras en auditor\'ia.
+\end{itemize}
+
+\end{document}
