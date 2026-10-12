@@ -1,209 +1,233 @@
-\documentclass[12pt]{article}
+\documentclass[addpoints,10pt]{exam}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
-\usepackage{geometry}
+\usepackage{times}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{algorithm2e}
+\usepackage{stfloats}
+\usepackage{multirow}
 \usepackage{array}
-\usepackage{tabularx}
-\usepackage{enumitem}
-\usepackage{longtable}
+\usepackage{vhistory}
 \usepackage{amsmath}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
+\usepackage{tcolorbox}
+\usepackage{fancyvrb}
+\usepackage[lighttt]{lmodern}
 \usepackage{xcolor}
-\usepackage{multicol}
-\geometry{letterpaper, margin=2.2cm}
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{Curso de Programaci\'on}
-\rhead{Unidad 4}
-\cfoot{P\'agina \thepage\ de \pageref{LastPage}}
-\setlength{\parindent}{0pt}
-\renewcommand{\arraystretch}{1.25}
-\newcommand{\blank}[1]{\rule{#1}{0.4pt}}
-\begin{document}
-
-\begin{center}
-{\LARGE \textbf{Eval\_U4}}\\[2mm]
-{\large Examen parcial -- Unidad 4: Estructuras de datos en Python}\\[1mm]
-\textbf{Duraci\'on: 100 minutos}
-\end{center}
-
-\vspace{2mm}
-\textbf{Nombre:} \blank{8cm} \hfill \textbf{Grupo:} \blank{2.5cm}\\[1mm]
-\textbf{Fecha:} \blank{3.5cm} \hfill \textbf{Puntaje total: 100 puntos}
-
-\vspace{2mm}
-\textbf{Prop\'osito de la evaluaci\'on}
-\begin{itemize}[leftmargin=1.2em]
-    \item Verificar si el estudiante reconoce y aplica correctamente las estructuras de datos trabajadas en la unidad.
-    \item Valorar su capacidad para leer c\'odigo, anticipar su resultado, completarlo y detectar errores.
-    \item Comprobar que puede razonar sobre soluciones sencillas usando ciclos, listas, tuplas, conjuntos y diccionarios.
-\end{itemize}
-
-\textbf{Instrucciones generales}
-\begin{itemize}[leftmargin=1.2em]
-    \item Lea cada pregunta con calma y responda solo lo que se solicita.
-    \item Cuando se pida completar c\'odigo, escriba una respuesta sint\'acticamente v\'alida y coherente con el contexto.
-    \item No se permite el uso de comprensiones de listas, librer\'ias externas ni estructuras no vistas en clase.
-    \item En las preguntas de an\'alisis o auditor\'ia, justifique brevemente su respuesta.
-\end{itemize}
-
-\textbf{Competencias evaluadas}
-\begin{itemize}[leftmargin=1.2em]
-    \item Identificar y usar correctamente objetos, mutabilidad, listas, tuplas, sets y diccionarios.
-    \item Analizar fragmentos de c\'odigo y deducir su comportamiento.
-    \item Completar y auditar c\'odigo usando estructuras de datos b\'asicas.
-    \item Resolver problemas simples de organizaci\'on y b\'usqueda de datos.
-\end{itemize}
-
-\section*{Pregunta 1. Emparejamiento de conceptos (12 puntos)}
-Relaciona cada concepto de la columna A con la descripci\'on correcta de la columna B. Escribe la letra correspondiente.
-
-\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{6.2cm}|>{\raggedright\arraybackslash}X|}
-\hline
-\textbf{Columna A} & \textbf{Columna B} \\
-\hline
-1. Lista & a. Colecci\'on no ordenada de pares clave-valor \\
-\hline
-2. Tupla & b. Colecci\'on mutable, ordenada, permite repetidos \\
-\hline
-3. Set & c. Colecci\'on inmutable y ordenada, permite acceso por \texttt{[\,]} \\
-\hline
-4. Diccionario & d. Colecci\'on mutable sin elementos duplicados \\
-\hline
-5. Mutabilidad & e. Propiedad que indica si un objeto puede modificarse despu\'es de creado \\
-\hline
-6. \texttt{append()} & f. M\'etodo para agregar un elemento al final de una lista \\
-\hline
-\end{tabularx}
-
-\vspace{2mm}
-Respuestas: 1.\blank{1cm} 2.\blank{1cm} 3.\blank{1cm} 4.\blank{1cm} 5.\blank{1cm} 6.\blank{1cm}
-
-\section*{Pregunta 2. Completar frase con palabra clave (12 puntos)}
-Complete cada enunciado con una palabra tomada del grupo de opciones.
-
-\textbf{Opciones:} \texttt{mutable}, \texttt{inmutable}, \texttt{key}, \texttt{value}, \texttt{index}, \texttt{set}, \texttt{tuple}
-
-\begin{enumerate}[leftmargin=1.3em]
-    \item Una lista es una estructura \blank{2.8cm}.
-    \item Una tupla es una estructura \blank{2.8cm}.
-    \item En un diccionario, la parte que identifica un dato se llama \blank{2.8cm}.
-    \item En un diccionario, el contenido asociado a la clave se llama \blank{2.8cm}.
-    \item El m\'etodo para conocer la posici\'on de un elemento en una lista es \blank{2.8cm}.
-    \item Una colecci\'on sin elementos repetidos se denomina \blank{2.8cm}.
-\end{enumerate}
-
-\section*{Pregunta 3. Completar fragmentos de c\'odigo (20 puntos)}
-Complete el c\'odigo en los espacios en blanco.
-
-\subsection*{3.1 Registro en listas (8 puntos)}
-El siguiente programa debe almacenar dos lecturas de temperatura en una lista y luego mostrar la \u00faltima lectura.
-
-\begin{verbatim}
-temperaturas = [18, 21]
-temperaturas.__________(24)
-print(temperaturas[__________])
-\end{verbatim}
-
-\subsection*{3.2 B\'usqueda en diccionario (6 puntos)}
-Complete la l\'inea faltante para mostrar cu\'antas horas de vuelo tiene la aeronave almacenada en el diccionario.
-
-\begin{verbatim}
-aeronave = {"matricula": "HK-4532", "horas": 5600}
-print(aeronave[__________])
-\end{verbatim}
-
-\subsection*{3.3 Recorrido de una tupla (6 puntos)}
-Complete la l\'inea faltante para recorrer la tupla sin modificarla.
-
-\begin{verbatim}
-modelos = ("A320", "B737", "E190")
-for modelo in __________:
-    print(modelo)
-\end{verbatim}
-
-\section*{Pregunta 4. Completar c\'odigo para resolver un problema (18 puntos)}
-Se requiere recorrer una lista de piezas y mostrar solo las que necesitan mantenimiento. Un componente requiere mantenimiento si sus horas de uso son mayores o iguales al l\'imite.
-
-\begin{verbatim}
-piezas = [
-    {"nombre": "Motor izquierdo", "horas": 1200, "limite": 1000},
-    {"nombre": "Motor derecho", "horas": 950, "limite": 1000},
-    {"nombre": "Tren de aterrizaje", "horas": 5000, "limite": 4500}
-]
-
-for pieza in piezas:
-    if ________________________________________________:
-        print(pieza["nombre"], "requiere mantenimiento")
-\end{verbatim}
-
-Luego, explique en una l\'inea qu\'e hace la condici\'on completada: \blank{10cm}
-
-\section*{Pregunta 5. Deducci\'on de funcionamiento de un fragmento (18 puntos)}
-Analice el siguiente fragmento y responda las preguntas.
-
-\begin{verbatim}
-componentes = ["alas", "fuselaje", "motores"]
-componentes.append("tren de aterrizaje")
-componentes.remove("alas")
-print(componentes)
-\end{verbatim}
-
-\begin{enumerate}[leftmargin=1.3em]
-    \item \u00bfCu\'al es el contenido final de la lista? (6 puntos)\\[1mm]
-    Respuesta: \blank{12cm}
-    \item \u00bfQu\'e efecto tiene \texttt{append()} en este caso? (6 puntos)\\[1mm]
-    Respuesta: \blank{12cm}
-    \item \u00bfQu\'e hace \texttt{remove()}? (6 puntos)\\[1mm]
-    Respuesta: \blank{12cm}
-\end{enumerate}
-
-\section*{Pregunta 6. Auditor\'ia de c\'odigo (20 puntos)}
-Lea el siguiente programa y responda lo que se pide.
-
-\begin{verbatim}
-flota = {
-    "HK-101": ["A320", 1200, 950],
-    "HK-202": ["B737", 1600, 1800]
+\usepackage{listings}
+\lstset{
+	basicstyle=\small\ttfamily,
+	stringstyle=\ttfamily,
+	commentstyle=\color{gray45},
+	showstringspaces=false,
+	keywordstyle=\bfseries
 }
+\usepackage{multicol,caption,capt-of}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 
-for matricula in flota:
-    if flota[matricula][1] > flota[matricula][2]:
-        print(matricula, "cumple")
-    else:
-        print(matricula, "no cumple")
-\end{verbatim}
+\begin{document}
+	
+	\pagestyle{headandfoot}
+	\runningheadrule
+	\firstpageheader{Programaci\'on}{Evaluaci\'on Unidad 4 - Nivel Avanzado}{2026}
+	\runningheader{Programaci\'on}{Evaluaci\'on Unidad 4, Page \thepage\ of \numpages}{2026}
+	\firstpagefooter{Escuela de Ingenier\'ias}{UPB}{Ingenier\'ia Aeron\'autica}
+	\runningfooter{Escuela de Ingenier\'ias}{UPB}{Ingenier\'ia Aeron\'autica}
+	
+	\begin{center}
+		\begin{tabular}{|m{4cm}|m{8cm}|m{6cm}|}
+			\hline
+			\multirow{5}{*}{\includegraphics[width=1\linewidth]{Logo-UPB-2022.png}}
+			&\multicolumn{2}{c|}{\textbf{Universidad Pontificia Bolivariana - Sede Medell\'in}}\\ \cline{2-3}
+			&Curso: \textbf{Programaci\'on}&Profesor: \textbf{Henry Andrade, Ph.D.}\\ \cline{2-3}
+			&&\\
+			&\textbf{Nombre:\ }&\textbf{ID: }\\\cline{2-3} \hline
+		\end{tabular}
+	\end{center}
+	
+	\tcbset{colback=red!5!white, colframe=red!75!black, fonttitle=\bfseries}
+	\begin{tcolorbox}[title=Nota Importante]
+		Lea cuidadosamente cada pregunta. Responda utilizando \emph{solo} conceptos y estructuras trabajados en clase. No se permite acceso a Internet durante la prueba. En las preguntas de c\'odigo, respete la sintaxis e indentaci\'on de Python.
+	\end{tcolorbox}
+	
+	\begin{multicols}{2}
+		\begin{questions}
+			\boxedpoints
+			\pointname{ Puntos}
+			\qformat{Pregunta \thequestion \dotfill \thepoints}
+			
+			\section*{1. Conceptos y estructuras de programaci\'on (30 puntos)}
+			
+			\question[10]
+			\textbf{Complete los espacios vac\'ios.} Escriba en la columna izquierda el concepto, operador u operaci\'on que debe ejecutarse para que coincida con la descripci\'on de la columna derecha.
+			
+			\noindent
+			\begin{center}
+				\begin{tabular}{|c|p{5.2cm}|}
+					\hline
+					\textbf{Complete} & \textbf{Descripci\'on}\\ \hline
+					& A. Genera una secuencia de n\'umeros en orden descendente desde 100 hasta 1.\\ \hline
+					& B. Eval\'ua una condici\'on solo si el \texttt{if} previo es falso.\\ \hline
+					& C. Operador que calcula el cociente entero de una divisi\'on.\\ \hline
+					& D. Finaliza la ejecuci\'on de un bucle, independientemente de la iteraci\'on actual.\\ \hline
+					& E. Palabra clave para definir un bloque de c\'odigo reutilizable.\\ \hline
+				\end{tabular}
+			\end{center}
+			
+			\question[10]
+			\textbf{Operadores.} Complete cada expresi\'on con el operador l\'ogico, aritm\'etico o relacional que corresponda seg\'un la condici\'on descrita.
+			
+			\begin{enumerate}
+				\item Comprobar si $n$ es un n\'umero par: \\
+				\texttt{n \ \rule{1cm}{0.4pt}\ 2 == 0}
+				\item Comprobar si $y$ est\'a estrictamente entre 10 y 20: \quad
+				\texttt{10 \ \rule{1cm}{0.4pt}\ y \ \rule{1cm}{0.4pt}\ 20}
+				\item Cambiar el valor de verdad de una variable booleana \texttt{encontrado}: \quad
+				\texttt{\rule{1cm}{0.4pt} encontrado}
+				\item Elevar la variable $x$ a la potencia de 3: \\
+				\texttt{x \ \rule{1cm}{0.4pt}\ 3}
+				\item Exigir que $a$ y $b$ sean iguales, O que $c$ sea 0: \\
+				\texttt{(a == b) \ \rule{1cm}{0.4pt}\ (c == 0)}
+			\end{enumerate}
+			
+			\question[10]
+			Analice el siguiente fragmento de c\'odigo.
+\begin{lstlisting}
+tiempo = 0
+while tiempo <= 60:
+	print("t =", tiempo)
+	tiempo = tiempo - 5
+\end{lstlisting}
 
-\begin{enumerate}[leftmargin=1.3em]
-    \item Explique qu\'e estructura de datos usa \texttt{flota} y qu\'e almacena cada valor asociado a una matr\'icula. (6 puntos)\\[1mm]
-    Respuesta: \blank{13cm}
-    \item Diga cu\'al es la salida del programa. (6 puntos)\\[1mm]
-    Respuesta: \blank{13cm}
-    \item Identifique una mejora posible para que el c\'odigo sea m\'as legible. (8 puntos)\\[1mm]
-    Respuesta: \blank{13cm}
-\end{enumerate}
+			\begin{enumerate}
+				\item Escriba textualmente qu\'e se imprime en pantalla en las cinco primeras iteraciones.
+				\item Determine si existe un error en la manera de implementar el bucle. Si es as\'i, proponga una correcci\'on.
+			\end{enumerate}
+			
+			\makeemptybox{4cm}
+			
+			\section*{2. Construcci\'on y an\'alisis de c\'odigo (45 puntos)}
+			
+			\question[25] \textbf{Condicionales: validaci\'on y c\'alculo (altimetr\'ia simplificada).}\\
+			En un simulador, el usuario ingresa una presi\'on est\'atica \texttt{p} (hPa). Para este ejercicio, use el siguiente modelo simplificado para una altitud aproximada:
+			\[
+			\texttt{alt\_m} = (\texttt{1013.25} - \texttt{p}) \times 8
+			\]
+			Escriba un programa que:
+			\begin{enumerate}
+				\item Solicite \texttt{p}.
+				\item Valide: si \texttt{p <= 0} o \texttt{p > 1100}, imprima \texttt{"Presi\'on inv\'alida"} y no haga el c\'alculo.
+				\item Si es v\'alida, calcule \texttt{alt\_m}.
+				\item Clasifique:
+				\begin{itemize}
+					\item \texttt{alt\_m < 0}: \texttt{``Bajo nivel del mar (modelo)''}
+					\item \texttt{0 <= alt\_m <= 3000}: \texttt{``Altitud baja''}
+					\item \texttt{alt\_m > 3000}: \texttt{``Altitud media/alta''}
+				\end{itemize}
+			\end{enumerate}
+			\textbf{Respuesta:}
+			\makeemptybox{8cm}
+			
+			\question[10]
+			\textbf{Bucle \texttt{for} y acumulaci\'on.} Analice el fragmento de c\'odigo y escriba exactamente qu\'e imprime por pantalla.
+			
+\begin{lstlisting}
+suma = 0
+for i in range(10, 2, -2):
+	if i == 6:
+		continue
+	suma = suma + i
+print(suma)
+\end{lstlisting}
+			
+			Salida:
+			\makeemptybox{5cm}
+			
+			\question[10]
+			\textbf{Monitoreo de descenso.} Durante una fase de aproximaci\'on, un sensor entrega la altitud (en pies) cada 10 segundos durante 2 minutos. Complete las instrucciones faltantes en el programa para que:
+			\begin{enumerate}
+				\item Recorra todas las mediciones.
+				\item Verifique si la altitud actual es mayor a la anterior para incrementar el contador de aumentos.
+				\item Actualice la variable \texttt{altitud\_anterior} en cada iteraci\'on.
+				\item Imprima ``Aproximaci\'on estable'' si no hubo aumentos.
+			\end{enumerate}
+			
+\begin{lstlisting}
+aumentos = 0
+altitud_anterior = None
 
-\section*{Pregunta 7. Completar c\'odigo con estructuras de datos correctas (10 puntos)}
-Se quiere guardar un inventario de repuestos donde la clave sea el nombre del repuesto y el valor sea su cantidad. Complete el c\'odigo.
+for i in range(________):
+   altitud = float(input("Ingrese altitud: "))
 
-\begin{verbatim}
-inventario = __________
-inventario["filtros"] = 12
-inventario["sellos"] = 7
-print(inventario)
-\end{verbatim}
+   if altitud_anterior is not None:
+      if altitud > _______________:
+         aumentos = aumentos + _____________
 
-Luego, indique por qu\'e la estructura elegida es adecuada: \blank{9cm}
+   altitud_anterior = __________
 
-\vspace{4mm}
-\textbf{Criterio de calificaci\'on general}
-\begin{itemize}[leftmargin=1.2em]
-    \item Exactitud conceptual y sint\'actica.
-    \item Uso correcto de estructuras de datos.
-    \item Claridad en la deducci\'on del funcionamiento del c\'odigo.
-    \item Detecci\'on de errores y propuesta de mejoras en auditor\'ia.
-\end{itemize}
+print("Número de aumentos:", aumentos)
 
+if ___________ == ___________:
+   print("Aproximación estable")
+_____:
+   print("Revisar perfil de descenso")
+\end{lstlisting}
+			
+			\vspace{1cm}
+			\section*{3. Funciones y pruebas de funcionalidad (25 puntos)}
+			
+			\question[10]
+			\textbf{Funci\'on.} Complete la funci\'on que recibe un n\'umero $n$ y retorna la sumatoria de todos los n\'umeros impares desde 1 hasta $n$ inclusive.
+			
+\begin{lstlisting}
+def suma_impares(n):
+   suma = 0
+   for i in range(1, ____ , ____):
+      suma += ____
+   return suma
+\end{lstlisting}
+			
+			\question[15]
+			\textbf{Prueba de funcionalidad.} Observe la siguiente funci\'on que aplica un paso de la famosa conjetura de Collatz:
+			
+\begin{lstlisting}
+def secuencia(n):
+   if n % 2 == 0:
+      return n // 2
+   else:
+      return n * 3 + 1
+\end{lstlisting}
+			
+			Complete la tabla escribiendo el valor retornado.
+			
+			\begin{center}
+				\begin{tabular}{|c|c|}
+					\hline
+					\textbf{Entrada} & \textbf{Retorno}\\ \hline
+					4 & \\ \hline
+					5 & \\ \hline
+					10 &\\ \hline
+					7 & \\ \hline
+					16 & \\ \hline
+				\end{tabular}
+			\end{center}
+			
+			Analizando el c\'odigo, indique qu\'e valor final se imprime si realizamos una \textbf{llamada anidada} evaluando el resultado de la funci\'on sobre s\'i misma:
+			\begin{verbatim}
+				print(secuencia(secuencia(5)))
+			\end{verbatim}
+			
+			Resultado de la llamada anidada:
+			\[
+			\texttt{\rule{0.55\linewidth}{0.4pt}}
+			\]
+		
+		\end{questions}
+	\end{multicols}
+	
+%\t\begin{center}
+%\t\t\gradetable[h][questions]
+%\t\end{center}
+	
 \end{document}
