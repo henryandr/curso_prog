@@ -1,0 +1,147 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\geometry{letterpaper, margin=2.2cm}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Curso de Programaci\'on}
+\rhead{Unidad 4 -- Clave docente}
+\cfoot{P\'agina \thepage\ de \pageref{LastPage}}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Clave docente -- Eval\_U4}}\\[2mm]
+{\large Hoja de respuestas y orientaciones de calificaci\'on}\\[1mm]
+\end{center}
+
+\section*{Criterios generales de calificaci\'on}
+\begin{itemize}[leftmargin=1.2em]
+    \item Acepte sin\'onimos t\'ecnicamente correctos en preguntas abiertas, siempre que no contradigan el contenido del curso.
+    \item En preguntas de c\'odigo, otorgue puntaje parcial si la l\'ogica es correcta aunque exista un error menor de sintaxis.
+    \item Penalice el uso de comprensiones, funciones no vistas o respuestas que rompan la restricci\'on pedag\'ogica de la unidad.
+\end{itemize}
+
+\section*{Pregunta 1. Emparejamiento de conceptos (12 puntos)}
+Respuestas correctas:
+\begin{itemize}[leftmargin=1.2em]
+    \item 1. Lista $\rightarrow$ b
+    \item 2. Tupla $\rightarrow$ c
+    \item 3. Set $\rightarrow$ d
+    \item 4. Diccionario $\rightarrow$ a
+    \item 5. Mutabilidad $\rightarrow$ e
+    \item 6. \texttt{append()} $\rightarrow$ f
+\end{itemize}
+Puntaje sugerido: 2 puntos por relaci\'on correcta.
+
+\section*{Pregunta 2. Completar frase con palabra clave (12 puntos)}
+\begin{enumerate}[leftmargin=1.3em]
+    \item mutable
+    \item inmutable
+    \item key
+    \item value
+    \item index
+    \item set
+\end{enumerate}
+Puntaje sugerido: 2 puntos por respuesta correcta.
+
+\section*{Pregunta 3. Completar fragmentos de c\'odigo (20 puntos)}
+\subsection*{3.1 Registro en listas}
+Respuesta esperada:
+\begin{verbatim}
+temperaturas = [18, 21]
+temperaturas.append(24)
+print(temperaturas[-1])
+\end{verbatim}
+Criterio: 4 puntos por \texttt{append(24)} y 4 puntos por \texttt{-1}.
+
+\subsection*{3.2 B\'usqueda en diccionario}
+Respuesta esperada:
+\begin{verbatim}
+print(aeronave["horas"])
+\end{verbatim}
+Aceptar tambi\'en \texttt{'horas'}.
+
+\subsection*{3.3 Recorrido de una tupla}
+Respuesta esperada:
+\begin{verbatim}
+for modelo in modelos:
+    print(modelo)
+\end{verbatim}
+Puntaje: 6 puntos completos si usa la tupla correcta.
+
+\section*{Pregunta 4. Completar c\'odigo para resolver un problema (18 puntos)}
+Respuesta esperada:
+\begin{verbatim}
+if pieza["horas"] >= pieza["limite"]:
+\end{verbatim}
+Explicaci\'on esperada: la condici\'on verifica si las horas de uso de la pieza alcanzan o superan el l\'imite establecido, por lo que debe recibir mantenimiento.
+
+Puntaje sugerido:
+\begin{itemize}[leftmargin=1.2em]
+    \item 10 puntos por la condici\'on correcta.
+    \item 8 puntos por la explicaci\'on clara del criterio de comparaci\'on.
+\end{itemize}
+
+\section*{Pregunta 5. Deducci\'on de funcionamiento de un fragmento (18 puntos)}
+Fragmento final:
+\begin{verbatim}
+['fuselaje', 'motores', 'tren de aterrizaje']
+\end{verbatim}
+Respuestas esperadas:
+\begin{enumerate}[leftmargin=1.3em]
+    \item La lista final es \texttt{['fuselaje', 'motores', 'tren de aterrizaje']}. 
+    \item \texttt{append()} agrega \texttt{"tren de aterrizaje"} al final de la lista.
+    \item \texttt{remove()} elimina la primera ocurrencia de \texttt{"alas"}.
+\end{enumerate}
+Puntaje sugerido: 6 puntos por cada inciso.
+
+\section*{Pregunta 6. Auditor\'ia de c\'odigo (20 puntos)}
+Respuestas esperadas:
+\begin{enumerate}[leftmargin=1.3em]
+    \item \texttt{flota} es un diccionario. Cada clave es una matr\'icula y cada valor es una lista con tres datos: modelo, horas y un tercer valor num\'erico que en el c\'odigo se compara como l\'imite o referencia.
+    \item Salida esperada:
+\begin{verbatim}
+HK-101 cumple
+HK-202 no cumple
+\end{verbatim}
+    \item Mejora posible: usar nombres m\'as descriptivos, por ejemplo almacenar cada aeronave como diccionario con llaves \texttt{"modelo"}, \texttt{"horas"} y \texttt{"limite"}; tambi\'en puede extraerse la lista a una variable temporal para evitar indexaci\'on repetida.
+\end{enumerate}
+Puntaje sugerido:
+\begin{itemize}[leftmargin=1.2em]
+    \item 6 puntos por identificar la estructura y el contenido.
+    \item 6 puntos por la salida correcta.
+    \item 8 puntos por una mejora razonable y bien justificada.
+\end{itemize}
+
+\section*{Pregunta 7. Completar c\'odigo con estructuras de datos correctas (10 puntos)}
+Respuesta esperada:
+\begin{verbatim}
+inventario = {}
+\end{verbatim}
+Justificaci\'on esperada: un diccionario es adecuado porque permite asociar cada repuesto con su cantidad mediante una clave \'unica.
+
+Puntaje sugerido:
+\begin{itemize}[leftmargin=1.2em]
+    \item 4 puntos por \texttt{\{\}}.
+    \item 6 puntos por la justificaci\'on conceptual.
+\end{itemize}
+
+\section*{Observaciones pedag\'ogicas}
+\begin{itemize}[leftmargin=1.2em]
+    \item La evaluaci\'on se mantiene dentro de los contenidos observados en la unidad y se alinea con las actividades pr\'acticas del repositorio.
+    \item El tiempo estimado de 100 minutos es adecuado para resolver el examen con lectura, an\'alisis y redacci\'on breve.
+\end{itemize}
+
+\end{document}
